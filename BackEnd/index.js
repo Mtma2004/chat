@@ -1,5 +1,5 @@
 import "./DB/conection.js";
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import Users from "./modules/Users.js";
 import Convarsation from "./modules/Convarsation.js";
