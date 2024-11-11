@@ -1,0 +1,678 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+body {
+  overflow-x: hidden;
+}
+@keyframes slide {
+  100% {
+    right: 0px;
+  }
+}
+@media (max-width: 767px) {
+  .form {
+    width: 100% !important;
+  }
+}
+@media (max-width: 767px) {
+  .profile {
+    display: flex !important;
+    text-align: center;
+  }
+  .viewchat {
+    position: absolute;
+    right: -400px;
+    display: none;
+    transition: 0.3s;
+  }
+  .peopole {
+    position: absolute;
+    right: -200px;
+    display: none;
+    transition: 0.3s;
+    .users {
+      width: 90% !important;
+    }
+  }
+  .active2 {
+    width: 100% !important;
+    z-index: 2;
+    display: block;
+    animation: slide 50ms linear forwards;
+  }
+  .chats {
+    width: 100% !important;
+    .contacts {
+      width: 90% !important;
+    }
+  }
+  .profileviwe {
+    width: 95% !important;
+  }
+}
+@media (min-width: 765px) and (max-width: 1000px) {
+  .profile {
+    display: block !important;
+    text-align: center;
+  }
+}
+@media (min-width: 765px) {
+  .profile {
+    width: 80%;
+  }
+  .seeUsers {
+    display: none !important;
+  }
+  .back {
+    display: none !important;
+  }
+}
+:root {
+  --usersandconversation: #000000;
+  --color3: #191a1b;
+  --color4: #860000;
+  --viwechatColor: #111010;
+}
+.clicked {
+  pointer-events: none;
+  background-color: #0000005c;
+}
+.contener {
+  background-color: var(--color3);
+  height: 100vh;
+  display: grid;
+  place-items: center;
+
+  .form.formlogedin {
+    padding-top: 100px !important;
+  }
+
+  .form {
+    width: 400px;
+    height: 100%;
+    background-color: #2e2e2e;
+    border-radius: 10px;
+    padding: 10px;
+    padding-top: 40px;
+    box-shadow: 0 0 20px 0 #00000087;
+    color: white;
+    .will.willlogedin {
+      margin-bottom: 40px !important;
+    }
+    .will {
+      width: fit-content;
+      margin: 10px auto 20px;
+      text-align: center;
+    }
+    .submit {
+      padding: 5px 10px;
+      font-size: 20px;
+      background-color: #bf0000;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      margin: 10px auto;
+      width: fit-content;
+      display: block;
+      transition: 0.3s;
+      width: 250px;
+      &:hover {
+        background-color: var(--color4);
+      }
+    }
+
+    .input {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 20px auto 30px;
+      width: fit-content;
+      text-transform: capitalize;
+      position: relative;
+      label {
+        cursor: pointer;
+        font-size: 20px;
+        width: 100px;
+      }
+      label[for="age"] {
+        width: 150px !important;
+      }
+      input.password {
+        letter-spacing: 4px;
+      }
+      input.conformpassword {
+        letter-spacing: 4px;
+      }
+      select {
+        border-radius: 5px;
+        outline: none;
+        border: 1px solid black;
+        padding: 10px 5px;
+        font-size: 17px;
+        width: 70px;
+        option {
+          border-radius: 5px;
+          text-align: center;
+        }
+        &::-webkit-scrollbar {
+          width: 5px;
+          border-radius: 5px;
+        }
+        &::-webkit-scrollbar-thumb {
+          background-color: #006fb0;
+        }
+      }
+      input.chacked:focus {
+        border: 2px solid green !important;
+      }
+      input.unchacked:focus {
+        border: 2px solid red !important;
+      }
+      select.chacked {
+        border: 2px solid green !important;
+      }
+      select.unchacked {
+        border: 2px solid red !important;
+      }
+      input {
+        border-radius: 5px;
+        outline: none;
+        border: 1px solid black;
+        padding: 10px 5px;
+        font-size: 17px;
+
+        &::placeholder {
+          text-transform: capitalize;
+          letter-spacing: 0;
+          font-size: 14px;
+        }
+        &:focus::placeholder {
+          opacity: 0;
+          transition: 0.3s;
+        }
+        &:focus {
+          border: 1px solid var(--color4);
+          transition: 0.3s;
+        }
+      }
+    }
+  }
+
+  .dashboared {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    align-items: center;
+    .chats {
+      background-color: var(--usersandconversation);
+      width: 25%;
+      height: 100vh;
+      padding: 10px;
+      .contacts {
+        height: 450px;
+        overflow-y: scroll;
+        scroll-behavior: smooth;
+        &::-webkit-scrollbar {
+          display: none;
+        }
+        .contact {
+          display: flex;
+          gap: 10px;
+          align-items: center;
+          text-transform: capitalize;
+          border-bottom: 1px solid #726d6d80;
+          margin-bottom: 10px;
+          padding: 5px 5px 10px;
+          border-radius: 10px;
+          transition: 100ms;
+          position: relative;
+          cursor: pointer;
+          color: white;
+
+          &:hover {
+            background-color: #ffffff;
+            color: black !important;
+          }
+        }
+      }
+    }
+    .viewchat {
+      transition: 0.3s;
+      border: {
+        right: 1px solid black;
+        left: 1px solid black;
+      }
+      background-color: var(--viwechatColor);
+      width: 50%;
+      height: 100vh;
+      .contactviwe {
+        background-color: var(--usersandconversation);
+        padding: 10px 20px;
+        border-radius: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 90%;
+        margin: 30px auto;
+        text-transform: capitalize;
+
+        .info {
+          display: flex;
+          align-items: center;
+        }
+      }
+
+      .drdsh {
+        overflow-y: scroll;
+        width: 100%;
+        height: 475px;
+        transition: 0.2s;
+        &::-webkit-scrollbar {
+          width: 4px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+          background-color: var(--color4);
+          border-radius: 10px;
+        }
+        .chats2 {
+          height: fit-content;
+          padding: 10px;
+          .usermassege,
+          .mymassege {
+            width: 200px;
+            height: fit-content;
+            background-color: #b03200;
+            padding: 10px;
+            border-radius: 10px;
+            position: relative;
+            color: white;
+            line-height: 20px;
+            margin: 25px 0;
+            left: 35px;
+          }
+          .mymassege {
+            background-color: var(--color4);
+            left: calc(100% - 235px) !important;
+          }
+        }
+      }
+      .text {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        .massege {
+          width: 80%;
+          padding: 15px 20px;
+          border-radius: 40px;
+          background-color: black;
+          color: white;
+          border: none;
+          outline: none;
+          margin: 10px;
+          font-size: 18px;
+          box-shadow: 0px 1px 4px 0 #0000005c;
+          &:focus::placeholder {
+            opacity: 0;
+            transition: 100ms;
+          }
+        }
+        button {
+          background-color: transparent;
+          border: none;
+          outline: none;
+        }
+      }
+    }
+    .peopole.active {
+      width: 100% !important;
+      display: block;
+      animation: slide 50ms linear forwards;
+    }
+    .peopole {
+      transition: 0.3s;
+      background-color: var(--usersandconversation);
+      width: 25%;
+      height: 100vh;
+      .users {
+        height: 600px;
+        overflow-y: scroll;
+        &::-webkit-scrollbar {
+          width: 10px;
+        }
+        &::-webkit-scrollbar-thumb {
+          background-color: var(--color4);
+          border-radius: 10px;
+        }
+
+        .contact {
+          display: flex;
+          gap: 10px;
+          align-items: center;
+          text-transform: capitalize;
+          border-bottom: 1px solid #726d6d80;
+          margin-bottom: 10px;
+          padding: 5px 5px 10px;
+          border-radius: 10px;
+          transition: 100ms;
+          position: relative;
+          cursor: pointer;
+          color: white;
+          &:hover {
+            background-color: #ffffff;
+            color: black;
+          }
+        }
+      }
+    }
+  }
+}
+i {
+  -webkit-text-stroke: white;
+  -webkit-text-stroke-width: 1px;
+  color: transparent;
+  font-size: 20px;
+  transition: 100ms;
+  cursor: pointer;
+  &:hover {
+    -webkit-text-stroke: transparent;
+    -webkit-text-stroke-width: 0px;
+    color: var(--color4);
+  }
+}
+.profileviwe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 400px;
+  border-radius: 15px;
+  background-color: black;
+  cursor: default;
+  z-index: 1;
+  border: 1px solid red;
+  .logout {
+    background-color: red;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 10px;
+    text-transform: capitalize;
+    font-size: 18px;
+    margin: 50px auto;
+    width: fit-content;
+    display: block;
+    pointer-events: all;
+    cursor: pointer;
+  }
+}
+.display {
+  display: none;
+}
+.myName,
+.userName {
+  position: absolute;
+  top: -15px;
+  color: white;
+  text-transform: capitalize;
+  font-size: 12px;
+  background-color: var(--color4);
+  border-radius: 5px;
+}
+.myName {
+  right: 3px;
+}
+.myPhoto,
+.userPhoto {
+  position: absolute;
+  top: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+.myPhoto {
+  right: 3px;
+}
+.userName {
+  background-color: #b03200;
+  left: 3px;
+}
+aside.EmojiPickerReact {
+  position: absolute !important;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px !important;
+  height: 350px !important;
+}
+.fullname {
+  display: flex;
+  gap: 10px;
+  text-align: center;
+  justify-content: center;
+
+  .input {
+    display: block !important;
+    margin: 20px 10px !important;
+    label {
+      margin-bottom: 10px;
+      display: block;
+      width: 150px !important;
+    }
+    input {
+      width: 150px;
+      &::placeholder {
+        font-size: 12px;
+      }
+    }
+  }
+}
+.disabled {
+  pointer-events: none;
+  background-color: #0000005c !important;
+}
+.usercontenner {
+  width: 100%;
+  height: 100%;
+  background-color: #1a1717;
+  @media (max-width: 870px) {
+    .flexContener {
+      display: block !important;
+      .avatars {
+        width: 100% !important;
+      }
+      .quets {
+        width: 100% !important;
+        height: fit-content !important;
+      }
+    }
+  }
+  .flexContener {
+    display: flex;
+    padding: 20px;
+    gap: 20px;
+    .avatars {
+      width: 70%;
+      border-radius: 15px;
+      height: 500px;
+      background-color: #2b2b2b;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      grid-template-rows: repeat(auto-fit, minmax(160px, 1fr));
+      scroll-snap-type: y proximity;
+      margin-bottom: 20px;
+      scroll-behavior: smooth;
+      gap: 10px;
+      padding: 70px 10px 10px;
+      overflow: auto;
+      position: relative;
+      &::-webkit-scrollbar {
+        width: 5px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background-color: #ffffff;
+      }
+      div {
+        background-color: #ac0000;
+        height: 160px;
+        border-radius: 10px;
+        transition: 300ms;
+      }
+      div.selected {
+        opacity: 0.5;
+        border: 1px white solid;
+      }
+      // div:nth($list: , $n: )
+      span {
+        position: absolute;
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: white;
+        font-size: 25px;
+        text-transform: capitalize;
+      }
+    }
+    .quets {
+      width: 30%;
+      height: 500px;
+      padding: 10px;
+      background-color: #2b2b2b;
+      border-radius: 15px;
+      .input {
+        margin: 20px auto;
+        width: fit-content;
+        text-transform: capitalize;
+        label {
+          text-align: center;
+          display: block;
+          cursor: pointer;
+          font-size: 30px;
+          width: 300px;
+          color: white;
+          margin-bottom: 20px;
+        }
+        input {
+          border-radius: 5px;
+          outline: none;
+          border: 1px solid black;
+          padding: 10px 5px;
+          width: 300px;
+          height: 70px;
+          font-size: 25px;
+
+          &::placeholder {
+            text-transform: capitalize;
+            letter-spacing: 0;
+            font-size: 14px;
+          }
+          &:focus::placeholder {
+            opacity: 0;
+            transition: 0.3s;
+          }
+          &:focus {
+            border: 1px solid var(--color4);
+            transition: 0.3s;
+          }
+        }
+      }
+    }
+  }
+}
+.finish {
+  margin: 10px auto;
+  display: block;
+  padding: 10px 15px;
+  font-size: 20px;
+  text-transform: capitalize;
+  letter-spacing: 2px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-weight: bold;
+  background-color: #ac0000;
+  color: white;
+}
+.seeUsers {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  display: block;
+  z-index: 2;
+  color: white;
+  background-color: var(--color4);
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  i:hover {
+    color: white;
+  }
+  &:active {
+    background-color: #430202;
+  }
+}
+.back {
+  position: absolute;
+  top: 0px;
+  left: 0;
+  display: block;
+  z-index: 2;
+  color: white;
+  background-color: var(--color4);
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.messVer {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  object-fit: cover;
+  top: -8px;
+}
+.right {
+  right: 0;
+}
+.loadingcontact {
+  width: 90%;
+  height: 70px;
+  border-radius: 50px;
+  margin: 20px auto;
+  animation: loading 2s linear infinite;
+}
+.loadingMyMess,
+.loadingUserMess {
+  width: 200px;
+  height: 50px;
+  padding: 10px;
+  border-radius: 10px;
+  position: relative;
+  line-height: 20px;
+  margin: 25px 0;
+  left: 35px;
+  animation: loading 2s linear infinite;
+}
+.loadingMyMess {
+  left: calc(100% - 235px) !important;
+}
+@keyframes loading {
+  0% {
+    background-color: #55555598;
+  }
+  50% {
+    background-color: #cfcfcf98;
+  }
+  100% {
+    background-color: #55555598;
+  }
+}
