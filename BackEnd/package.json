@@ -1,10 +1,11 @@
 {
-  "name": "server",
+  "name": "chat-app",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js",
-    "build": "npm install"
+    "start": "node index.js",
+    "server": "nodemon index.js",
+    "build": "npm install "
   },
   "type": "module",
   "author": "",

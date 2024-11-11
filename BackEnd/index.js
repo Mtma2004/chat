@@ -11,7 +11,7 @@ import { app, server } from "./socket.js";
 import path from "path";
 
 const __dirname = path.resolve();
-app.use(express.static(path.join(__dirname, "../FrontEnd/build")));
+app.use(express.static(path.join(__dirname, "FrontEnd", "build")));
 
 dotenv.config();
 
@@ -418,7 +418,7 @@ app.get("/api/myacount", async (req, res) => {
   }
 });
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../FrontEnd/build", "index.html"));
+  res.sendFile(path.join(__dirname, "FrontEnd", "build", "index.html"));
 });
 
 server.listen(port, () => {
