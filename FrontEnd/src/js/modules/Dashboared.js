@@ -55,7 +55,7 @@ export default function Dashboared() {
 
   useEffect(() => {
     // set socket
-    const newsocket = io("http://localhost:3000");
+    const newsocket = io("https://dardesh2.onrender.com");
     setsocket(newsocket);
   }, []);
   useEffect(() => {
@@ -131,7 +131,7 @@ export default function Dashboared() {
     const Loggedinuser = JSON.parse(localStorage.getItem("user:detail"));
     const fetchconversation = async () => {
       const res = await fetch(
-        `http://localhost:3000/api/conversation/${Loggedinuser.id}`,
+        `https://dardesh2.onrender.com/api/conversation/${Loggedinuser.id}`,
         {
           method: "GET",
           headers: {
@@ -150,7 +150,7 @@ export default function Dashboared() {
     //get all users from backend
     const fetchusers = async () => {
       const res = await fetch(
-        `http://localhost:3000/api/users?userId=${user.id}`,
+        `https://dardesh2.onrender.com/api/users?userId=${user.id}`,
         {
           method: "GET",
           headers: {
@@ -167,7 +167,7 @@ export default function Dashboared() {
     //get all users from backend
     const feychmyUser = async () => {
       const res = await fetch(
-        `http://localhost:3000/api/myacount?userId=${user.id}`,
+        `https://dardesh2.onrender.com/api/myacount?userId=${user.id}`,
         {
           method: "GET",
           headers: {
@@ -199,13 +199,16 @@ export default function Dashboared() {
       setloading(true);
       console.log(loading);
       if (conversationId === "social") {
-        const res = await fetch("http://localhost:3000/api/message/social", {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          credentials: "include",
-        });
+        const res = await fetch(
+          "https://dardesh2.onrender.com/api/message/social",
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            credentials: "include",
+          }
+        );
         const resdata = await res.json();
         setmessages({
           mes: Array.isArray(resdata) ? resdata : [],
@@ -220,7 +223,7 @@ export default function Dashboared() {
         setphoto(photoviwe);
       } else {
         const res = await fetch(
-          `http://localhost:3000/api/message/${conversationId}?senderId=${user.id}&&receverId=${id}`,
+          `https://dardesh2.onrender.com/api/message/${conversationId}?senderId=${user.id}&&receverId=${id}`,
           {
             method: "GET",
 
@@ -261,7 +264,7 @@ export default function Dashboared() {
         });
       }
 
-      const res = await fetch("http://localhost:3000/api/message", {
+      const res = await fetch("https://dardesh2.onrender.com/api/message", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

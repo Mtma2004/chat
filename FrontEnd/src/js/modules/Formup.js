@@ -31,7 +31,9 @@ const Formup = ({ isLoggedIn }) => {
   const handleSubmit = async () => {
     try {
       const res = await fetch(
-        `http://localhost:3000/api/${isLoggedIn ? "sign_in" : "sign_up"}`,
+        `https://dardesh2.onrender.com/api/${
+          isLoggedIn ? "sign_in" : "sign_up"
+        }`,
         {
           method: "POST",
           headers: {
