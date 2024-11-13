@@ -715,7 +715,18 @@ export default function Dashboared() {
                                   if (conversationId === "social") {
                                     return (
                                       <>
-                                        <div style={{ position: "relative" }}>
+                                        <div
+                                          style={{
+                                            position: "relative",
+                                            display: "flex",
+                                            alignItems: "center",
+                                          }}
+                                          className={
+                                            id === user.id
+                                              ? "mymesscont"
+                                              : "usermesscont"
+                                          }
+                                        >
                                           <div
                                             key={index}
                                             className={
