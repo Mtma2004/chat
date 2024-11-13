@@ -402,7 +402,6 @@ export default function Dashboared() {
   };
   const isUnreadsocail =
     unreadConversations.includes("social") && reciverconversation !== "social";
-  const owner = receiveremail === "almogany86@gmail.com";
   return (
     <>
       <div className="dashboared">
