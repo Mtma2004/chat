@@ -289,15 +289,12 @@ body {
             background-color: #b03200;
             padding: 10px;
             border-radius: 10px;
-            position: relative;
             color: white;
             line-height: 20px;
-            margin: 25px 0;
-            left: 35px;
+            margin: 10px;
           }
           .mymassege {
             background-color: var(--color4);
-            left: calc(100% - 235px) !important;
           }
         }
       }
@@ -429,15 +426,17 @@ i {
 }
 .myPhoto,
 .userPhoto {
-  position: absolute;
-  top: 0;
   width: 30px;
   height: 30px;
   border-radius: 50%;
 }
-.myPhoto {
-  right: 3px;
+.mymesscont {
+  justify-content: right;
 }
+.usermesscont {
+  justify-content: left;
+}
+
 .userName {
   background-color: #b03200;
   left: 3px;

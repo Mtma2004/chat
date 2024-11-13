@@ -410,23 +410,22 @@ body {
 
 .contener .dashboared .viewchat .drdsh .chats2 .usermassege,
 .contener .dashboared .viewchat .drdsh .chats2 .mymassege {
-  width: 200px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
   background-color: #b03200;
   padding: 10px;
   border-radius: 10px;
-  position: relative;
   color: white;
   line-height: 20px;
-  margin: 25px 0;
-  left: 35px;
+  margin: 10px;
 }
 
 .contener .dashboared .viewchat .drdsh .chats2 .mymassege {
   background-color: var(--color4);
-  left: calc(100% - 235px) !important;
 }
 
 .contener .dashboared .viewchat .text {
@@ -608,15 +607,21 @@ i:hover {
 
 .myPhoto,
 .userPhoto {
-  position: absolute;
-  top: 0;
   width: 30px;
   height: 30px;
   border-radius: 50%;
 }
 
-.myPhoto {
-  right: 3px;
+.mymesscont {
+  -webkit-box-pack: right;
+      -ms-flex-pack: right;
+          justify-content: right;
+}
+
+.usermesscont {
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
 }
 
 .userName {
