@@ -413,6 +413,7 @@ body {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
+  min-width: 70px;
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
@@ -599,10 +600,11 @@ i:hover {
   font-size: 12px;
   background-color: var(--color4);
   border-radius: 5px;
+  top: -7px;
 }
 
 .myName {
-  right: 3px;
+  right: 43px;
 }
 
 .myPhoto,
@@ -619,14 +621,19 @@ i:hover {
 }
 
 .usermesscont {
-  -webkit-box-pack: left;
-      -ms-flex-pack: left;
-          justify-content: left;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+  margin: 10px;
 }
 
 .userName {
   background-color: #b03200;
-  left: 3px;
+  left: 43px;
 }
 
 aside.EmojiPickerReact {
@@ -917,7 +924,8 @@ aside.EmojiPickerReact {
   height: 15px;
   -o-object-fit: cover;
      object-fit: cover;
-  top: -8px;
+  top: 7px;
+  left: 20px;
 }
 
 .right {

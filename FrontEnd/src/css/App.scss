@@ -285,6 +285,7 @@ body {
           .usermassege,
           .mymassege {
             width: fit-content;
+            min-width: 70px;
             height: fit-content;
             background-color: #b03200;
             padding: 10px;
@@ -420,9 +421,10 @@ i {
   font-size: 12px;
   background-color: var(--color4);
   border-radius: 5px;
+  top: -7px;
 }
 .myName {
-  right: 3px;
+  right: 43px;
 }
 .myPhoto,
 .userPhoto {
@@ -434,12 +436,14 @@ i {
   justify-content: right;
 }
 .usermesscont {
-  justify-content: left;
+  justify-content: start;
+  flex-direction: row-reverse;
+  margin: 10px;
 }
 
 .userName {
   background-color: #b03200;
-  left: 3px;
+  left: 43px;
 }
 aside.EmojiPickerReact {
   position: absolute !important;
@@ -637,7 +641,8 @@ aside.EmojiPickerReact {
   width: 15px;
   height: 15px;
   object-fit: cover;
-  top: -8px;
+  top: 7px;
+  left: 20px;
 }
 .right {
   right: 0;
