@@ -434,11 +434,12 @@ i {
 }
 .mymesscont {
   justify-content: right;
+  margin-top: 10px;
 }
 .usermesscont {
   justify-content: start;
   flex-direction: row-reverse;
-  margin: 10px;
+  margin-top: 10px;
 }
 
 .userName {
@@ -645,7 +646,7 @@ aside.EmojiPickerReact {
   left: 20px;
 }
 .right {
-  right: 0;
+  left: 98% !important;
 }
 .loadingcontact {
   width: 90%;

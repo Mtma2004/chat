@@ -56,6 +56,7 @@ export default function Dashboared() {
   useEffect(() => {
     // set socket
     const newsocket = io("https://dardesh2.onrender.com");
+    // const newsocket = io("http://localhost:3000");
     setsocket(newsocket);
   }, []);
   useEffect(() => {
@@ -132,6 +133,7 @@ export default function Dashboared() {
     const fetchconversation = async () => {
       const res = await fetch(
         `https://dardesh2.onrender.com/api/conversation/${Loggedinuser.id}`,
+        // `http://localhost:3000/api/conversation/${Loggedinuser.id}`,
         {
           method: "GET",
           headers: {
@@ -151,6 +153,7 @@ export default function Dashboared() {
     const fetchusers = async () => {
       const res = await fetch(
         `https://dardesh2.onrender.com/api/users?userId=${user.id}`,
+        // `http://localhost:3000/api/users?userId=${user.id}`,
         {
           method: "GET",
           headers: {
@@ -168,6 +171,7 @@ export default function Dashboared() {
     const feychmyUser = async () => {
       const res = await fetch(
         `https://dardesh2.onrender.com/api/myacount?userId=${user.id}`,
+        // `http://localhost:3000/api/myacount?userId=${user.id}`,
         {
           method: "GET",
           headers: {
@@ -201,6 +205,7 @@ export default function Dashboared() {
       if (conversationId === "social") {
         const res = await fetch(
           "https://dardesh2.onrender.com/api/message/social",
+          // "http://localhost:3000/api/message/social",
           {
             method: "GET",
             headers: {
@@ -224,6 +229,7 @@ export default function Dashboared() {
       } else {
         const res = await fetch(
           `https://dardesh2.onrender.com/api/message/${conversationId}?senderId=${user.id}&&receverId=${id}`,
+          // `http://localhost:3000/api/message/${conversationId}?senderId=${user.id}&&receverId=${id}`,
           {
             method: "GET",
 
@@ -264,19 +270,23 @@ export default function Dashboared() {
         });
       }
 
-      const res = await fetch("https://dardesh2.onrender.com/api/message", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        credentials: "include",
-        body: JSON.stringify({
-          conversationId: reciverconversation,
-          senderId: user.id,
-          message,
-          receverId: reciverID,
-        }),
-      });
+      const res = await fetch(
+        "https://dardesh2.onrender.com/api/message",
+        // "http://localhost:3000/api/message",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          credentials: "include",
+          body: JSON.stringify({
+            conversationId: reciverconversation,
+            senderId: user.id,
+            message,
+            receverId: reciverID,
+          }),
+        }
+      );
 
       const resdata = await res.json();
       console.log(resdata.conversationId);

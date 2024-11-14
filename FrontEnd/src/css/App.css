@@ -618,6 +618,7 @@ i:hover {
   -webkit-box-pack: right;
       -ms-flex-pack: right;
           justify-content: right;
+  margin-top: 10px;
 }
 
 .usermesscont {
@@ -628,7 +629,7 @@ i:hover {
   -webkit-box-direction: reverse;
       -ms-flex-direction: row-reverse;
           flex-direction: row-reverse;
-  margin: 10px;
+  margin-top: 10px;
 }
 
 .userName {
@@ -929,7 +930,7 @@ aside.EmojiPickerReact {
 }
 
 .right {
-  right: 0;
+  left: 98% !important;
 }
 
 .loadingcontact {

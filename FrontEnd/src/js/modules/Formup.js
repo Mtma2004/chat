@@ -34,6 +34,7 @@ const Formup = ({ isLoggedIn }) => {
         `https://dardesh2.onrender.com/api/${
           isLoggedIn ? "sign_in" : "sign_up"
         }`,
+        //  `http://localhost:3000/api/${isLoggedIn ? "sign_in" : "sign_up"}`,
         {
           method: "POST",
           headers: {
@@ -168,7 +169,7 @@ const Formup = ({ isLoggedIn }) => {
 
           <div className="input">
             <label htmlFor="password" className="password">
-              conform password
+              password
             </label>
             <input
               type="password"

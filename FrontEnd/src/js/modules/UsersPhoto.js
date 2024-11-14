@@ -58,6 +58,7 @@ export default function UsersPhoto() {
   const fetchavatars = async () => {
     const res = fetch(
       `https://dardesh2.onrender.com/api/quotes?email=${user.email}`,
+      // `http://localhost:3000/api/quotes?email=${user.email}`,
       {
         method: "POST",
         headers: {
