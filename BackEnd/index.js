@@ -10,10 +10,6 @@ import dotenv from "dotenv";
 import { app, server } from "./socket.js";
 import path from "path";
 
-// Users.deleteMany({}).then(() => console.log("deleted"));
-// Messeges.deleteMany({}).then(() => console.log("deleted"));
-// Convarsation.deleteMany({}).then(() => console.log("deleted"));
-
 const __dirname = path.resolve();
 app.use(express.static(path.join(__dirname, "FrontEnd", "build")));
 

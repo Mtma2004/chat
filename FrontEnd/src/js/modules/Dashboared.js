@@ -23,6 +23,7 @@ export default function Dashboared() {
   let [socket, setsocket] = useState(null);
   let [photo, setphoto] = useState();
   let [loading, setloading] = useState();
+  let [loadingmass, setloadingmass] = useState();
   let [onlineUsers, setonlineUsers] = useState([]);
   let [recivedMessages, setrecivedMessages] = useState();
   const [unreadConversations, setUnreadConversations] = useState([]);
@@ -64,7 +65,7 @@ export default function Dashboared() {
     if (drdsh.current) {
       drdsh.current.scrollIntoView();
     }
-  }, [messages?.mes]);
+  }, [messages?.mes, loadingmass]);
   useEffect(() => {
     // handle socket to get and receive messages , get new conversation and get notfication
 
@@ -270,38 +271,44 @@ export default function Dashboared() {
         });
       }
 
-      const res = await fetch(
-        "https://dardesh2.onrender.com/api/message",
-        // "http://localhost:3000/api/message",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          credentials: "include",
-          body: JSON.stringify({
-            conversationId: reciverconversation,
-            senderId: user.id,
-            message,
-            receverId: reciverID,
-          }),
-        }
-      );
+      try {
+        setloadingmass(true);
+        const res = await fetch(
+          "https://dardesh2.onrender.com/api/message",
+          // "http://localhost:3000/api/message",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            credentials: "include",
+            body: JSON.stringify({
+              conversationId: reciverconversation,
+              senderId: user.id,
+              message,
+              receverId: reciverID,
+            }),
+          }
+        );
 
-      const resdata = await res.json();
-      console.log(resdata.conversationId);
+        const resdata = await res.json();
 
-      setmessage("");
-      socket?.emit("getMessage", {
-        senderId: user.id,
-        reciverId: reciverID,
-        message,
-        conversation: resdata.conversationId,
-      });
-      sendSound.play();
+        setmessage("");
+        socket?.emit("getMessage", {
+          senderId: user.id,
+          reciverId: reciverID,
+          message,
+          conversation: resdata.conversationId,
+        });
+        sendSound.play();
+        setreciverconversation(resdata.conversationId);
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setloadingmass(false);
+      }
+
       // console.log("message", messages); debugging code
-
-      setreciverconversation(resdata.conversationId);
 
       // console.log("conversation id from sender", resdata.conversationId); debugging code
     }
@@ -854,6 +861,48 @@ export default function Dashboared() {
                             >
                               no messages
                             </div>
+                          )}
+                          {loadingmass ? (
+                            <>
+                              <div
+                                style={{
+                                  position: "relative",
+                                  display: "flex",
+                                  alignItems: "center",
+                                }}
+                                className={"mymesscont"}
+                              >
+                                <div className={"mymassege"}>
+                                  {reciverconversation === "socail" ? (
+                                    <span className={"myName"}>
+                                      {user.firstName}
+                                    </span>
+                                  ) : (
+                                    ""
+                                  )}
+                                  {message}
+                                </div>
+                                <div>
+                                  <img
+                                    className={"myPhoto"}
+                                    src={myacount.photo}
+                                    alt=""
+                                  />
+                                  {myacount.email === "almogany86@gmail.com" ? (
+                                    <img
+                                      className={`messVer ${"right"}`}
+                                      src={verfication}
+                                      alt=""
+                                    />
+                                  ) : (
+                                    ""
+                                  )}
+                                </div>
+                              </div>
+                              <div ref={drdsh}></div>
+                            </>
+                          ) : (
+                            ""
                           )}
                         </div>
                       </div>
